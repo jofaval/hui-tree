@@ -1,13 +1,10 @@
+import { SearchDetailsType } from "../../useSearch/types/useSearch.types";
+
 export enum SelectAllStatusEnum {
   ALL = "ALL",
   SOME = "SOME",
   NONE = "NONE",
 }
-
-export type SearchDetailsType = {
-  text?: string;
-  caseSensitive?: boolean;
-};
 
 export type useTreeProps<TItem = any> = {
   data: TItem[];
