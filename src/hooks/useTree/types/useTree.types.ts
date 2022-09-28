@@ -9,19 +9,19 @@ export type SearchDetailsType = {
   caseSensitive?: boolean;
 };
 
-export type useTreeProps<Item = any> = {
-  data: Item[];
+export type useTreeProps<TItem = any> = {
+  data: TItem[];
   onMouseEnterItem: (e: Event) => void;
   searchDetails?: SearchDetailsType;
   searchKey?: string;
 };
 
-export type useTreeResponse = {
+export type useTreeResponse<TItem = any, TKey = string> = {
   // allSelected: boolean;
   // getWrapper: () => JSX.Element;
-  onSelectionChanged: () => void;
+  onSelectionChanged: (keys: TKey[]) => void;
 };
 
-export type useTreeType<Item = any> = (
-  props: useTreeProps<Item>
-) => useTreeResponse;
+export type useTreeType<TItem = any, TKey = string> = (
+  props: useTreeProps<TItem>
+) => useTreeResponse<TKey>;

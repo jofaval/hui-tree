@@ -1,5 +1,6 @@
 // Vendors
 import { useEffect, useState } from "react";
+import { useSelection } from "../useSelection/useSelection";
 // Hooks
 import { useTreeHandlers } from "./handlers/useTree.handlers";
 // Types
@@ -9,14 +10,17 @@ import type {
   useTreeType,
 } from "./types/useTree.types";
 
-export const useTree = <Item>(props: useTreeProps): useTreeResponse => {
-  const [availableItems, setAvailableItems] = useState<Item[]>([]);
+export const useTree = <TItem, TKey>(
+  props: useTreeProps<TItem>
+): useTreeResponse<TItem, TKey> => {
+  const [availableItems, setAvailableItems] = useState<TItem[]>([]);
 
   const { onSearchTextChanged } = useTreeHandlers({
     ...props,
     setAvailableItems,
     availableItems,
   });
+  const { onSelectionChanged } = useSelection<TKey>({});
 
   useEffect(() => {
     onSearchTextChanged();
