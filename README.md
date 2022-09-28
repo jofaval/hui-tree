@@ -51,3 +51,4 @@ But the worst part of it all, is that they're a pain to customize (if it's possi
 
 - Tanner Linsley - Tanstack and React Table's component and talk
 - Theo Browne - [t3.gg](https://t3.gg)
+- As referenced by Tanner Linsley in his own website, [https://www.merrickchristensen.com/articles/headless-user-interface-components/](https://www.merrickchristensen.com/articles/headless-user-interface-components/)
