@@ -11,7 +11,6 @@ import type {
 
 export const useTree = <Item>(props: useTreeProps): useTreeResponse => {
   const [availableItems, setAvailableItems] = useState<Item[]>([]);
-  const [selectedElements, setSelectedElements] = useState<string[]>([]);
 
   const { onSearchTextChanged } = useTreeHandlers({
     ...props,
@@ -22,8 +21,6 @@ export const useTree = <Item>(props: useTreeProps): useTreeResponse => {
   useEffect(() => {
     onSearchTextChanged();
   }, [props.data, props.searchDetails?.text]);
-
-  const onSelectionChanged = () => {};
 
   return {
     // getWrapper,

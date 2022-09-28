@@ -1,5 +1,18 @@
-export type useSelectionProps = {};
+import { useSelectionHandlers } from "./handlers/useSelection.handlers";
 
-export type useSelectionResponse = {};
+export type useSelectionProps<TKey = string> = {};
 
-export const useSelection = ({}: useSelectionProps): useSelectionResponse => {};
+export type useSelectionResponse<TKey = string> = {
+  selectedElements: TKey[];
+  onSelectionChanged: (keys: TKey[]) => void;
+};
+
+export const useSelection = <
+  TKey = string
+>({}: useSelectionProps<TKey>): useSelectionResponse<TKey> => {
+  const { selectedElements, onSelectionChanged } = useSelectionHandlers<TKey>(
+    {}
+  );
+
+  return { selectedElements, onSelectionChanged };
+};
