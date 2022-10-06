@@ -1,21 +1,22 @@
 import { useState } from "react";
+import type { TreeGenericsType } from "../useTree/types/useTree.types";
 import { useSearchHandlers } from "./handlers/useSearch.handlers";
 
-export type useSearchProps<TItem = any, TKey = string> = {
-  availableItems: TItem[];
+export type useSearchProps<TGenerics extends TreeGenericsType> = {
+  availableItems: TGenerics["Item"][];
   text?: string;
   caseSensitive?: boolean;
 };
 
-export type useSearchResponse<TItem = any> = {
-  filteredItems: TItem[];
+export type useSearchResponse<TGenerics extends TreeGenericsType> = {
+  filteredItems: TGenerics["Item"][];
   onSearchTextChanged: () => void;
 };
 
-export const useSearch = <TItem, TKey>(
-  props: useSearchProps<TItem, TKey>
-): useSearchResponse<TItem> => {
-  const [filteredItems, setFilteredItems] = useState<TItem[]>([]);
+export const useSearch = <TGenerics extends TreeGenericsType>(
+  props: useSearchProps<TGenerics>
+): useSearchResponse<TGenerics> => {
+  const [filteredItems, setFilteredItems] = useState<TGenerics["Item"][]>([]);
 
   const { onSearchTextChanged } = useSearchHandlers({
     ...props,

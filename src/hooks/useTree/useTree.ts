@@ -6,21 +6,21 @@ import { useSelection } from "../useSelection/useSelection";
 import { useTreeHandlers } from "./handlers/useTree.handlers";
 // Types
 import type {
+  TreeGenericsType,
   UseTreeProps,
   UseTreeResponse,
-  UseTreeType,
 } from "./types/useTree.types";
 
-export const useTree = <TItem, TKey>(
-  props: UseTreeProps<TItem>
-): UseTreeResponse<TItem, TKey> => {
-  const [availableItems, setAvailableItems] = useState<TItem[]>([]);
+export const useTree = <TGenerics extends TreeGenericsType>(
+  props: UseTreeProps<TGenerics>
+): UseTreeResponse<TGenerics> => {
+  const [availableItems, setAvailableItems] = useState<TGenerics["Item"][]>([]);
 
   const {} = useTreeHandlers({
     ...props,
   });
-  const { onSelectionChanged } = useSelection<TKey>({});
-  const { filteredItems, onSearchTextChanged } = useSearch<TItem, TKey>({
+  const { onSelectionChanged } = useSelection<TGenerics["Key"]>({});
+  const { filteredItems, onSearchTextChanged } = useSearch<TGenerics>({
     ...props.searchDetails,
     availableItems,
   });

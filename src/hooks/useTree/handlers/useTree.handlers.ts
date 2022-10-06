@@ -1,13 +1,16 @@
+/** Utils */
 import { searchClosure } from "../../useSearch/utils/search";
-import { UseTreeProps } from "../types/useTree.types";
-import { Dispatch, SetStateAction } from "react";
+/** Types */
+import type { TreeGenericsType, UseTreeProps } from "../types/useTree.types";
+import type { Dispatch, SetStateAction } from "react";
 
-export type useTreeHandlersProps<Item = any> = UseTreeProps<Item> & {};
+export type useTreeHandlersProps<TGenerics extends TreeGenericsType> =
+  UseTreeProps<TGenerics> & {};
 
-export type UseTreeHandlersResponse = {};
+export type UseTreeHandlersResponse<TGenerics extends TreeGenericsType> = {};
 
 export const useTreeHandlers = <
-  Item = any
->({}: useTreeHandlersProps<Item>): UseTreeHandlersResponse => {
+  TGenerics extends TreeGenericsType
+>({}: useTreeHandlersProps<TGenerics>): UseTreeHandlersResponse<TGenerics> => {
   return {};
 };

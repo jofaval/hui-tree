@@ -8,7 +8,7 @@ export enum SelectAllStatusEnum {
 
 export type UseTreeProps<TGenerics extends TreeGenericsType> = {
   data: TGenerics["Item"][];
-  onMouseEnterItem: (e: Event) => void;
+  onMouseEnterItem?: (e: Event) => void;
   searchDetails?: SearchDetailsType;
   /**
    * It'll generate a Map, and for it to properly work, it needs and id for each element,
