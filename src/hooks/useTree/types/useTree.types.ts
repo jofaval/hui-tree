@@ -6,7 +6,7 @@ export enum SelectAllStatusEnum {
   NONE = "NONE",
 }
 
-export type useTreeProps<TGenerics extends TreeGenericsType> = {
+export type UseTreeProps<TGenerics extends TreeGenericsType> = {
   data: TGenerics["Item"][];
   onMouseEnterItem: (e: Event) => void;
   searchDetails?: SearchDetailsType;
@@ -20,15 +20,15 @@ export type useTreeProps<TGenerics extends TreeGenericsType> = {
   ParentKey?: string;
 };
 
-export type useTreeResponse<TGenerics extends TreeGenericsType> = {
+export type UseTreeResponse<TGenerics extends TreeGenericsType> = {
   // allSelected: boolean;
   // getWrapper: () => JSX.Element;
   onSelectionChanged: (keys: TGenerics["Key"][]) => void;
 };
 
-export type useTreeType<TGenerics extends TreeGenericsType> = (
-  props: useTreeProps<TGenerics>
-) => useTreeResponse<TGenerics>;
+export type UseTreeType<TGenerics extends TreeGenericsType> = (
+  props: UseTreeProps<TGenerics>
+) => UseTreeResponse<TGenerics>;
 
 export type TreeGenericsType = {
   /**

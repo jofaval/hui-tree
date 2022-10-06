@@ -1,6 +1,6 @@
 // Utils
 import type {
-  useSearchHandlersProps,
+  UseSearchHandlersProps,
   UseSearchHandlersResponse,
 } from "../types/useSearch.handlers.types";
 import { searchClosure } from "../utils/search";
@@ -10,7 +10,7 @@ export const useSearchHandlers = <TItem = any>({
   caseSensitive,
   setFilteredItems,
   text,
-}: useSearchHandlersProps<TItem>): UseSearchHandlersResponse<TItem> => {
+}: UseSearchHandlersProps<TItem>): UseSearchHandlersResponse<TItem> => {
   const onSearchTextChanged = () => {
     if (!text || !length) {
       return;

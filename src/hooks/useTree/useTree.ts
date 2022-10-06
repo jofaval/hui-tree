@@ -6,14 +6,14 @@ import { useSelection } from "../useSelection/useSelection";
 import { useTreeHandlers } from "./handlers/useTree.handlers";
 // Types
 import type {
-  useTreeProps,
-  useTreeResponse,
-  useTreeType,
+  UseTreeProps,
+  UseTreeResponse,
+  UseTreeType,
 } from "./types/useTree.types";
 
 export const useTree = <TItem, TKey>(
-  props: useTreeProps<TItem>
-): useTreeResponse<TItem, TKey> => {
+  props: UseTreeProps<TItem>
+): UseTreeResponse<TItem, TKey> => {
   const [availableItems, setAvailableItems] = useState<TItem[]>([]);
 
   const {} = useTreeHandlers({

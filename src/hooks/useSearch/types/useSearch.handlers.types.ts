@@ -2,7 +2,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { SearchDetailsType } from "./useSearch.types";
 
-export type useSearchHandlersProps<TItem = any> = SearchDetailsType & {
+export type UseSearchHandlersProps<TItem = any> = SearchDetailsType & {
   availableItems: TItem[];
   setFilteredItems: Dispatch<SetStateAction<TItem[]>>;
 };

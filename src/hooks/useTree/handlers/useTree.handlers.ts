@@ -1,8 +1,8 @@
 import { searchClosure } from "../../useSearch/utils/search";
-import { useTreeProps } from "../types/useTree.types";
+import { UseTreeProps } from "../types/useTree.types";
 import { Dispatch, SetStateAction } from "react";
 
-export type useTreeHandlersProps<Item = any> = useTreeProps<Item> & {};
+export type useTreeHandlersProps<Item = any> = UseTreeProps<Item> & {};
 
 export type UseTreeHandlersResponse = {};
 
