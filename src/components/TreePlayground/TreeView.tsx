@@ -85,7 +85,9 @@ export function TreeView({ nodes, options = DEFAULT_OPTIONS }: TreeViewProps) {
   return (
     <div className="treeview">
       {nodes && nodes.length
-        ? nodes.map((nodeProps) => <Node {...nodeProps} onClick={() => {}} />)
+        ? [...nodeMapById].map(([key, nodeProps]) => (
+            <Node {...nodeProps} onClick={() => {}} key={key} />
+          ))
         : null}
     </div>
   );
